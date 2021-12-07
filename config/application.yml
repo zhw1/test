@@ -1,0 +1,25 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config
+  profiles:
+    active: native
+  cloud:
+    client:
+      ipAddress: 127.0.0.1
+    config:
+      server:
+        git:
+          uri:
+          searchLocations: D:/code/config
+          username:
+          password:
+      label: main
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
