@@ -11,4 +11,6 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,shutdown,service-registry
+        include: "*"
+  health:
+    show-details: always
